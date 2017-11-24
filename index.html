@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="end">
+<head>
+	<title>Countdown Days</title>
+</head>
+<body>
+
+	<p><font face="Arial" size="3">Countdown To November 25, 2017</font>
+	</p>
+	<form name="form1">
+	  <p>Days
+	    <input type="text" name="days" value="0" size="3">Hours
+	    <input type="text" name="hours" value="0" size="4">Minutes
+	    <input type="text" name="minutes" value="0" size="7">Seconds
+	    <input type="text" name="seconds" value="0" size="7">
+	  </p>
+	</form>
+
+	<script type="text/javascript">
+		var now = new Date();
+		var theevent = new Date("Nov 26 2017");
+		var seconds = (theevent - now) / 1000;
+		var minutes = seconds / 60;
+		var hours = minutes / 60;
+		var days = hours / 24;
+		ID = window.setTimeout("update();", 1000);
+
+		function update() {
+		  now = new Date();
+		  seconds = (theevent - now) / 1000;
+		  seconds = Math.round(seconds);
+		  minutes = seconds / 60;
+		  minutes = Math.round(minutes);
+		  hours = minutes / 60;
+		  hours = Math.round(hours);
+		  days = hours / 24;
+		  days = Math.round(days);
+		  document.form1.days.value = days;
+		  document.form1.hours.value = hours;
+		  document.form1.minutes.value = minutes;
+		  document.form1.seconds.value = seconds;
+		  ID = window.setTimeout("update();", 1000);
+		}
+	</script>
+
+</body>
+</html>
